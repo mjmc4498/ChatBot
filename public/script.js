@@ -97,7 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function appendMessage(sender, message) {
         const messageElement = document.createElement('div');
-        messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        messageElement.classList.add('message', sender.toLowerCase());
+        messageElement.innerHTML = `<div class="sender">${sender}</div><div class="text">${message}</div>`;
         chatWindow.appendChild(messageElement);
         // Render mermaid diagrams
         mermaid.run({
