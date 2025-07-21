@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendMessage('Bot', `¡Hola ${userName}! ¿Cómo puedo ayudarte hoy?`);
                 }
             } else {
-                let botResponse = "Lo siento, no entiendo. ¿Puedes reformular tu pregunta? Intenta preguntar sobre calidad de datos, linaje de datos o gobernanza de datos.";
+                let botResponse = `Lo siento, no tengo información sobre "${message}". ¿Te gustaría buscar en Google? <a href="https://www.google.com/search?q=${message}" target="_blank">Buscar en Google</a>`;
                 for (const keyword in dataGovernanceTopics) {
                     if (message.includes(keyword)) {
                         const topic = dataGovernanceTopics[keyword];
