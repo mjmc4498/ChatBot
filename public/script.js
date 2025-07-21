@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (!found) {
-                    fetch(`https://api.duckduckgo.com/?q=${message}&format=json&pretty=1`)
+                    fetch(`https://api.duckduckgo.com/?q=${message}&format=json&pretty=1&kl=es-es`)
                         .then(response => response.json())
                         .then(data => {
                             if (data.AbstractText) {
