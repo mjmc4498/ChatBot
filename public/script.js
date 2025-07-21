@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendMessage('Bot', `¡Hola ${userName}! ¿Cómo puedo ayudarte hoy?`);
                 }
             } else {
-                let botResponse = `Lo siento, no tengo información sobre "${message}". ¿Te gustaría buscar en Google? <a href="https://www.google.com/search?q=${message}" target="_blank">Buscar en Google</a>`;
+                let found = false;
                 for (const keyword in dataGovernanceTopics) {
                     if (message.includes(keyword)) {
                         const topic = dataGovernanceTopics[keyword];
@@ -86,11 +86,29 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (topic.diagram) {
                             response += `<br>${topic.diagram}`;
                         }
-                        botResponse = response;
+                        appendMessage('Bot', response);
+                        found = true;
                         break;
                     }
                 }
-                appendMessage('Bot', botResponse);
+
+                if (!found) {
+                    fetch(`https://api.duckduckgo.com/?q=${message}&format=json&pretty=1`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.AbstractText) {
+                                appendMessage('Bot', data.AbstractText);
+                            } else if (data.RelatedTopics.length > 0) {
+                                let response = 'Aquí hay algunos temas relacionados:<br>';
+                                data.RelatedTopics.forEach(topic => {
+                                    response += `<a href="${topic.FirstURL}" target="_blank">${topic.Text}</a><br>`;
+                                });
+                                appendMessage('Bot', response);
+                            } else {
+                                appendMessage('Bot', `Lo siento, no pude encontrar información sobre "${message}".`);
+                            }
+                        });
+                }
             }
         }
     }
