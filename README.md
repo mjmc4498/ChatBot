@@ -1,23 +1,23 @@
-# Data Governance Chatbot
+# Chatbot de Gobernanza de Datos
 
-A conversational agent for data governance topics.
+Un agente conversacional sobre temas de gobernanza de datos.
 
-## Description
+## Descripción
 
-This is a client-side conversational agent for data governance topics. It is built with HTML, CSS, and JavaScript, and uses Bootstrap 5 for styling. The chatbot can answer questions about data quality, data lineage, data governance, DAMA-DMBOK, DCAM, and COBIT. It also supports rich responses with Mermaid.js diagrams.
+Este es un agente conversacional del lado del cliente sobre temas de gobernanza de datos. Está construido con HTML, CSS y JavaScript, y utiliza Bootstrap 5 para el estilo. El chatbot puede responder preguntas sobre calidad de datos, linaje de datos, gobernanza de datos, DAMA-DMBOK, DCAM y COBIT. También admite respuestas enriquecidas con diagramas de Mermaid.js.
 
-## Features
+## Características
 
--   **Conversational Interface:** A simple and intuitive chat interface.
--   **Data Governance Knowledge:** Provides information on key data governance topics.
--   **Rich Responses:** Displays diagrams and charts to illustrate concepts.
--   **Client-Side Only:** No backend server required.
+-   **Interfaz Conversacional:** Una interfaz de chat simple e intuitiva.
+-   **Conocimiento de Gobernanza de Datos:** Proporciona información sobre temas clave de gobernanza de datos.
+-   **Respuestas Enriquecidas:** Muestra diagramas y gráficos para ilustrar conceptos.
+-   **Solo del Lado del Cliente:** No se requiere servidor de backend.
 
-## How to Use
+## Cómo Usar
 
-1.  Clone the repository: `git clone https://github.com/mjmc4498/ChatBot.git`
-2.  Open the `public/index.html` file in your browser.
+1.  Clona el repositorio: `git clone https://github.com/mjmc4498/ChatBot.git`
+2.  Abre el archivo `index.html` en tu navegador.
 
-## Live Demo
+## Demo en Vivo
 
-You can access a live demo of the chatbot here: https://mjmc4498.github.io/ChatBot
+Puedes acceder a una demostración en vivo del chatbot aquí: https://mjmc4498.github.io/ChatBot

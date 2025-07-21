@@ -1,31 +1,31 @@
 const dataGovernanceTopics = {
-    "data quality": {
-        "definition": "Data quality refers to the state of qualitative or quantitative pieces of information. There are many definitions of data quality but data is generally considered high quality if it is 'fit for [its] intended uses in operations, decision making and planning'.",
-        "dimensions": ["Accuracy", "Completeness", "Consistency", "Timeliness", "Uniqueness", "Validity"]
+    "calidad de datos": {
+        "definition": "La calidad de los datos se refiere al estado de las piezas de información cualitativas o cuantitativas. Existen muchas definiciones de calidad de datos, pero generalmente se considera que los datos son de alta calidad si son 'aptos para sus usos previstos en operaciones, toma de decisiones y planificación'.",
+        "dimensions": ["Precisión", "Integridad", "Consistencia", "Puntualidad", "Unicidad", "Validez"]
     },
-    "data lineage": {
-        "definition": "Data lineage includes the data's origins, what happens to it and where it moves over time. Data lineage is the process of understanding, recording, and visualizing data as it flows from data sources to consumption.",
-        "importance": "Data lineage is important for root cause analysis, impact analysis, and regulatory compliance."
+    "linaje de datos": {
+        "definition": "El linaje de datos incluye los orígenes de los datos, lo que les sucede y hacia dónde se mueven con el tiempo. El linaje de datos es el proceso de comprender, registrar y visualizar los datos a medida que fluyen desde las fuentes de datos hasta el consumo.",
+        "importance": "El linaje de datos es importante para el análisis de la causa raíz, el análisis de impacto y el cumplimiento normativo."
     },
-    "data governance": {
-        "definition": "Data governance is the process of managing the availability, usability, integrity and security of the data in enterprise systems, based on internal data standards and policies that also control data usage.",
-        "goals": ["Improve data quality", "Ensure data security and privacy", "Promote data literacy", "Enable better decision making"]
+    "gobernanza de datos": {
+        "definition": "La gobernanza de datos es el proceso de gestionar la disponibilidad, usabilidad, integridad y seguridad de los datos en los sistemas empresariales, basándose en estándares y políticas de datos internos que también controlan el uso de los datos.",
+        "goals": ["Mejorar la calidad de los datos", "Garantizar la seguridad y privacidad de los datos", "Promover la alfabetización de datos", "Permitir una mejor toma de decisiones"]
     },
     "dama-dmbok": {
-        "definition": "The DAMA-DMBOK (Data Management Body of Knowledge) is a framework that provides a comprehensive overview of the data management field. It is a reference for data management professionals, providing a standard vocabulary and a structured approach to data management.",
-        "knowledge_areas": ["Data Governance", "Data Architecture", "Data Modeling and Design", "Data Storage and Operations", "Data Security", "Data Integration and Interoperability", "Documents and Content Management", "Reference and Master Data", "Data Warehousing and Business Intelligence", "Metadata Management", "Data Quality"]
+        "definition": "El DAMA-DMBOK (Cuerpo de Conocimiento de Gestión de Datos) es un marco que proporciona una visión general completa del campo de la gestión de datos. Es una referencia para los profesionales de la gestión de datos, que proporciona un vocabulario estándar y un enfoque estructurado para la gestión de datos.",
+        "knowledge_areas": ["Gobernanza de Datos", "Arquitectura de Datos", "Modelado y Diseño de Datos", "Almacenamiento y Operaciones de Datos", "Seguridad de Datos", "Integración e Interoperabilidad de Datos", "Gestión de Documentos y Contenido", "Datos de Referencia y Maestros", "Almacenamiento de Datos e Inteligencia de Negocios", "Gestión de Metadatos", "Calidad de Datos"]
     },
     "dcam": {
-        "definition": "The DCAM (Data Management Capability Assessment Model) is a framework that helps organizations assess their data management capabilities. It provides a structured approach to identifying strengths and weaknesses in data management practices.",
-        "components": ["Strategy and Business Case", "Data Governance", "Data Quality", "Data Operations", "Platform and Architecture", "Supporting Capabilities"]
+        "definition": "El DCAM (Modelo de Evaluación de la Capacidad de Gestión de Datos) es un marco que ayuda a las organizaciones a evaluar sus capacidades de gestión de datos. Proporciona un enfoque estructurado para identificar fortalezas y debilidades en las prácticas de gestión de datos.",
+        "components": ["Estrategia y Caso de Negocio", "Gobernanza de Datos", "Calidad de Datos", "Operaciones de Datos", "Plataforma y Arquitectura", "Capacidades de Soporte"]
     },
     "cobit": {
-        "definition": "COBIT (Control Objectives for Information and Related Technologies) is a framework for the governance and management of enterprise IT. It provides a set of good practices for IT management and governance, and it can be used to support data governance initiatives.",
-        "principles": ["Meeting Stakeholder Needs", "Covering the Enterprise End-to-End", "Applying a Single, Integrated Framework", "Enabling a Holistic Approach", "Separating Governance From Management"]
+        "definition": "COBIT (Objetivos de Control para la Información y Tecnologías Relacionadas) es un marco para el gobierno y la gestión de las TI empresariales. Proporciona un conjunto de buenas prácticas para la gestión y el gobierno de las TI, y puede utilizarse para apoyar las iniciativas de gobernanza de datos.",
+        "principles": ["Satisfacer las Necesidades de las Partes Interesadas", "Cubrir la Empresa de Extremo a Extremo", "Aplicar un Marco Único e Integrado", "Permitir un Enfoque Holístico", "Separar el Gobierno de la Gestión"]
     },
-    "data life cycle": {
-        "definition": "The data life cycle describes the stages that a particular piece of data goes through from its initial generation or capture to its eventual archival or deletion.",
-        "diagram": "<div class=\"mermaid\">graph TD; A[Creation] --> B(Storage); B --> C{Usage}; C --> D[Archival]; C --> E[Deletion];</div>"
+    "ciclo de vida de los datos": {
+        "definition": "El ciclo de vida de los datos describe las etapas por las que pasa una pieza de datos en particular desde su generación o captura inicial hasta su eventual archivo o eliminación.",
+        "diagram": "<div class=\"mermaid\">graph TD; A[Creación] --> B(Almacenamiento); B --> C{Uso}; C --> D[Archivo]; C --> E[Eliminación];</div>"
     }
 };
 
@@ -43,45 +43,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let userName = '';
 
-    appendMessage('Bot', 'Hello! What is your name?');
+    appendMessage('Bot', '¡Hola! ¿Cuál es tu nombre?');
 
     function sendMessage() {
         const message = userInput.value.trim().toLowerCase();
         if (message) {
-            appendMessage('You', message);
+            appendMessage('Tú', message);
             userInput.value = '';
 
             if (!userName) {
-                if (message.startsWith("my name is")) {
+                if (message.startsWith("mi nombre es")) {
                     userName = message.substring(11);
-                    appendMessage('Bot', `Hello ${userName}! How can I help you today?`);
+                    appendMessage('Bot', `¡Hola ${userName}! ¿Cómo puedo ayudarte hoy?`);
                 } else {
                     userName = message;
-                    appendMessage('Bot', `Hello ${userName}! How can I help you today?`);
+                    appendMessage('Bot', `¡Hola ${userName}! ¿Cómo puedo ayudarte hoy?`);
                 }
             } else {
-                let botResponse = "I'm sorry, I don't understand. Can you please rephrase your question? Try asking about data quality, data lineage, or data governance.";
+                let botResponse = "Lo siento, no entiendo. ¿Puedes reformular tu pregunta? Intenta preguntar sobre calidad de datos, linaje de datos o gobernanza de datos.";
                 for (const keyword in dataGovernanceTopics) {
                     if (message.includes(keyword)) {
                         const topic = dataGovernanceTopics[keyword];
                         let response = `<strong>${keyword.toUpperCase()}</strong><br>${topic.definition}`;
                         if (topic.dimensions) {
-                            response += `<br><strong>Dimensions:</strong> ${topic.dimensions.join(', ')}`;
+                            response += `<br><strong>Dimensiones:</strong> ${topic.dimensions.join(', ')}`;
                         }
                         if (topic.importance) {
-                            response += `<br><strong>Importance:</strong> ${topic.importance}`;
+                            response += `<br><strong>Importancia:</strong> ${topic.importance}`;
                         }
                         if (topic.goals) {
-                            response += `<br><strong>Goals:</strong> ${topic.goals.join(', ')}`;
+                            response += `<br><strong>Metas:</strong> ${topic.goals.join(', ')}`;
                         }
                         if (topic.knowledge_areas) {
-                            response += `<br><strong>Knowledge Areas:</strong> ${topic.knowledge_areas.join(', ')}`;
+                            response += `<br><strong>Áreas de Conocimiento:</strong> ${topic.knowledge_areas.join(', ')}`;
                         }
                         if (topic.components) {
-                            response += `<br><strong>Components:</strong> ${topic.components.join(', ')}`;
+                            response += `<br><strong>Componentes:</strong> ${topic.components.join(', ')}`;
                         }
                         if (topic.principles) {
-                            response += `<br><strong>Principles:</strong> ${topic.principles.join(', ')}`;
+                            response += `<br><strong>Principios:</strong> ${topic.principles.join(', ')}`;
                         }
                         if (topic.diagram) {
                             response += `<br>${topic.diagram}`;
